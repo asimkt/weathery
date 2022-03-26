@@ -2,7 +2,10 @@ import React, { FC } from 'react';
 import { useWeatherContext } from '../../../context';
 import './styles.css';
 
-const CardInfo: FC<{ label: string; value?: any }> = ({ label, value }) => {
+const CardInfo: FC<{ label: string; value?: string | number }> = ({
+  label,
+  value,
+}) => {
   return (
     <div className="weather-app__widget_card_info">
       <h4>{label}</h4>
