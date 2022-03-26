@@ -1,13 +1,14 @@
 import { createContext, useContext } from 'react';
-
+import { Location } from './core/types';
 
 interface WeatherContextType {
-  weatherInfo: any,
-  setWeatherInfo: (val: any) => void
+  weatherInfo: any;
+  setWeatherInfo: (val: any) => void;
+  location: Location | null;
+  setLocation: (loc: Location) => void;
 }
 
-export const WeatherContext =
-  createContext<WeatherContextType | null>(null);
+export const WeatherContext = createContext<WeatherContextType | null>(null);
 
 export const useWeatherContext = () => {
   const context = useContext(WeatherContext);

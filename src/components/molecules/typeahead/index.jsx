@@ -1,12 +1,25 @@
-import React, { useState, useCallback } from 'react';
+/* eslint-disable */
 import debounce from 'lodash/debounce';
+import uniqBy from 'lodash/uniqBy';
+import React, { useState, useCallback } from 'react';
 import './TypeAhead.css';
 import { getCachedApiResponse } from './utils';
-import { Spinner } from '../../Atoms/Spinner/Spinner';
+
 // Component will do some kind of caching in Browser.
 // The server should cache the apiPrefix also to handle millions of requests per hour.
-export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, ...restProps }) => {
-  const { errorMsg = 'Please select an option', labelKey, optionsParent, label } = opts;
+export const TypeAhead = ({
+  apiPrefix,
+  name = 'default',
+  onOptionSelect,
+  opts,
+  ...restProps
+}) => {
+  const {
+    errorMsg = 'Please select an option',
+    labelKey,
+    optionsParent,
+    label,
+  } = opts;
   const [options, setOptions] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [active, setActive] = useState(null);
@@ -16,20 +29,32 @@ export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, .
   const [error, setError] = useState('');
   const [shouldBlurClose, setBlurClose] = useState(true);
   const debouncedApiCall = useCallback(
-    debounce(async value => {
+    debounce(async (value) => {
       if (apiPrefix) {
         setLoading(true);
-        const response = value ? await getCachedApiResponse(`${apiPrefix}${value}`) : {};
+        const response = value
+          ? await getCachedApiResponse(`${apiPrefix}${value}`)
+          : {};
+
         setLoading(false);
         const apiOptions = optionsParent ? response[optionsParent] : response;
+
         if (apiOptions && Symbol.iterator in Object(apiOptions)) {
-          setOptions(apiOptions);
+          const uniqueOptions = uniqBy(apiOptions, labelKey);
+          console.log(uniqueOptions, apiOptions);
+          const optionsWithId = uniqueOptions.map((option) => { 
+            return {
+              ...option,
+              id: `${option.lat}__${option.lon}`
+            }
+          })
+          setOptions(optionsWithId);
         }
       }
     }, 500),
     [],
   );
-  const handleInput = e => {
+  const handleInput = (e) => {
     setIsOpen(true);
     // Set active as null so that user won't accidently select old value
     setActive(null);
@@ -37,8 +62,9 @@ export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, .
     setInputValue(e.target.value);
     debouncedApiCall(e.target.value);
   };
-  const handleKeyDown = e => {
+  const handleKeyDown = (e) => {
     let newIndex;
+
     if ((e.which === 38 || e.which === 40) && !isLoading) {
       // No active option -> set first option as active
       if (!active) {
@@ -48,10 +74,11 @@ export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, .
       applyActiveOption(options[newIndex], newIndex);
     }
   };
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     if (!options[0]) {
       setError(errorMsg);
+
       return;
     }
     setIsOpen(false);
@@ -73,10 +100,13 @@ export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, .
     setActiveIndex(index || 0);
     setInputValue(labelKey ? opt[labelKey] : opt);
   };
+
   return (
     <div className="TypeAhead" {...restProps}>
       <form onSubmit={onSubmit}>
-        <label htmlFor={`inputTypeAhead-${name}`}>Search {label ? `for ${label}` : ''}</label>
+        <label htmlFor={`inputTypeAhead-${name}`}>
+          Search {label ? `for ${label}` : ''}
+        </label>
         <input
           onBlur={() => {
             if (shouldBlurClose) {
@@ -93,7 +123,9 @@ export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, .
           role="combobox"
           aria-auto-complete="both"
           aria-owns={`results-${name}`}
-          aria-activedescendant={active && (labelKey ? active[labelKey] : active)}
+          aria-activedescendant={
+            active && (labelKey ? active[labelKey] : active)
+          }
         />
         {error ? <p>{errorMsg}</p> : null}
       </form>
@@ -111,9 +143,7 @@ export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, .
           }}
         >
           {isLoading ? (
-            <li className="TypeAhead__option">
-              <Spinner />
-            </li>
+            <li className="TypeAhead__option">'Loading..'</li>
           ) : (
             options.slice(0, 10).map((option, index) => (
               <li
@@ -128,7 +158,9 @@ export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, .
                 }}
                 id={labelKey ? option[labelKey] : option}
                 className={`TypeAhead__option ${
-                  active && option.id === active.id ? 'TypeAhead__option--selected' : ''
+                  active && option.id && option.id === active.id
+                    ? 'TypeAhead__option--selected'
+                    : ''
                 }`}
                 role="option"
               >
@@ -140,4 +172,4 @@ export const TypeAhead = ({ apiPrefix, name = 'default', onOptionSelect, opts, .
       ) : null}
     </div>
   );
-}
+};
