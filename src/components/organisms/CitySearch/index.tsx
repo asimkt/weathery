@@ -1,4 +1,5 @@
 import { useWeatherContext } from '../../../context';
+import { API_ENDPOINT_CITY, API_KEY } from '../../../core/api';
 import { TypeAhead } from '../../molecules/typeahead';
 
 export const CitySearch = () => {
@@ -13,7 +14,7 @@ export const CitySearch = () => {
   return (
     <div className="CitySearch">
       <TypeAhead
-        apiPrefix="http://api.openweathermap.org/geo/1.0/direct?limit=5&appid=efe7c8c7a0ffe99e008f261e428fee84&q="
+        apiPrefix={`${API_ENDPOINT_CITY}/direct?limit=5&appid=${API_KEY}&q=`}
         opts={opts}
         onOptionSelect={setLocation}
       />

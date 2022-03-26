@@ -1,1 +1,30 @@
-.weather-app__widget {}
+.weather-app__widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.weather-app__widget .weather-app__widget_img {
+    width: 123px;
+    object-fit: contain;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.weather-app__widget .weather-app__widget_location_img {
+    width: 21px;
+    height: 21px;
+    margin-left: 8px;
+}
+.weather-app__widget .weather-app__widget_location{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 45px;
+}
+
+.weather-app__widget h5{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 16px;
+    color: #C4C4C4;
+}

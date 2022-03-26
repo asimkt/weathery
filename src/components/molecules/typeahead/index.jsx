@@ -41,7 +41,6 @@ export const TypeAhead = ({
 
         if (apiOptions && Symbol.iterator in Object(apiOptions)) {
           const uniqueOptions = uniqBy(apiOptions, labelKey);
-          console.log(uniqueOptions, apiOptions);
           const optionsWithId = uniqueOptions.map((option) => { 
             return {
               ...option,
