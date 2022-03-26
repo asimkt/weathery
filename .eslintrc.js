@@ -21,17 +21,14 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
-    'plugin:cypress/recommended'
   ],
   plugins: [
     'react',
     'formatjs',
-    '@calm/react-intl',
     '@typescript-eslint',
     'jest',
     'import',
     'prettier',
-    'cypress'
   ],
   env: {
     browser: true,
@@ -70,29 +67,7 @@ module.exports = {
     'formatjs/no-multiple-whitespaces': 'error',
     'formatjs/no-multiple-plurals': 'error',
     'formatjs/no-offset': 'error',
-    '@calm/react-intl/missing-formatted-message': [
-      2,
-      {
-        noTrailingWhitespace: true,
-        ignoreLinks: false,
-        enforceLabels: false,
-        enforceImageAlts: false,
-        enforceInputProps: false,
-      },
-    ],
     'react/jsx-props-no-spreading': 1,
-    '@calm/react-intl/missing-attribute': [
-      2,
-      {
-        noTrailingWhitespace: true,
-        noSpreadOperator: true,
-        requireDescription: false,
-        formatDefineMessages: false,
-        requireIdAsString: false,
-        requireDefaultMessage: false,
-      },
-    ],
-    '@calm/react-intl/missing-values': 2,
     'jsx-quotes': [2, 'prefer-double'],
     quotes: [2, 'single', { avoidEscape: true }],
     'react/prop-types': 'off',
