@@ -5,9 +5,10 @@
 }
 .weather-app__widget .weather-app__widget_img {
     width: 123px;
+    min-height: 120px;
     object-fit: contain;
     height: auto;
-    margin-bottom: 24px;
+    margin: 40px 0 24px 0;
 }
 
 .weather-app__widget .weather-app__widget_location_img {
@@ -15,16 +16,33 @@
     height: 21px;
     margin-left: 8px;
 }
+
+.weather-app__widget_temp {
+    margin: 0;
+    position: relative;
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 105px;
+    padding-right: 40px;
+}
+.weather-app__widget .weather-app__widget_temp_img {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 44px;
+    height: 44px;
+}
 .weather-app__widget .weather-app__widget_location{
     font-weight: 600;
     font-size: 30px;
     line-height: 45px;
+    margin: 0;
 }
 
 .weather-app__widget h5{
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
-    margin-bottom: 16px;
-    color: #C4C4C4;
+    margin-bottom: var(--spacing-02);
+    color: var(--black03);
 }

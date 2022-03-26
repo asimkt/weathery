@@ -121,6 +121,7 @@ export const TypeAhead = ({
           className="TypeAhead__input"
           role="combobox"
           aria-auto-complete="both"
+          placeholder={label}
           aria-owns={`results-${name}`}
           aria-activedescendant={
             active && (labelKey ? active[labelKey] : active)

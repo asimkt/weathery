@@ -6,8 +6,8 @@ export const CitySearch = () => {
   const { setLocation } = useWeatherContext();
 
   const opts = {
+    label: 'Search for cities',
     labelKey: 'name',
-    label: 'City ',
     errorMsg: 'Search for a valid city',
   };
 

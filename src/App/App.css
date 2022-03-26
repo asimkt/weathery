@@ -2,5 +2,7 @@
     width: 375px;
     height: 812px;
     border: 1px solid #eee;
+    background-color: var(--bg-02);
     border-radius: 3px;
+    padding: 24px;
 }
