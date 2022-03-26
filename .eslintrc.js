@@ -7,7 +7,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true, // Allows for the parsing of JSX
     },
-    project: ['./tsconfig.json', './cypress/tsconfig.json'],
+    project: ['./tsconfig.json'],
   },
   ignorePatterns: ['src/components/pages/ozone-design/**/*.ts', 'src/components/pages/ozone-design/**/*.tsx'],
   extends: [
