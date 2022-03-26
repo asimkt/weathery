@@ -2,11 +2,11 @@
   --spacing-01: 8px;
   --spacing-02: 16px;
   --spacing-03: 24px;
-  --black-01: #2C2C2C;
-  --black02: #9A9A9A;
-  --black03: #C4C4C4;
-  --bg-01: #FDFCFC;
-  --bg-02: #d7e9fc61;
+  --black-01: #121719;
+  --black-02: #6d8896;
+  --black-03: #a3cbe1;
+  --bg-01: #f8fcff;
+  --bg-02: #e9f6fe;
 }
 body {
   margin: 0;

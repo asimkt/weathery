@@ -44,5 +44,38 @@
     font-size: 12px;
     line-height: 18px;
     margin-bottom: var(--spacing-02);
-    color: var(--black03);
+    color: var(--black-03);
+}
+
+.weather-app__widget_card {
+    margin-top: var(--spacing-03);
+    display: flex;
+    background-color: var(--bg-01);
+    border-radius: 11px;
+    width: 100%;
+    justify-content: space-around;
+    padding: var(--spacing-01);
+}
+
+.weather-app__widget_card_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: ;
+}
+
+.weather-app__widget_card_info h4{
+    color: var(--black-03);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0;
+    text-transform: uppercase;
+}
+.weather-app__widget_card_info p{
+    color: var(--black-02);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    margin: 0;
 }

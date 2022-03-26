@@ -4,6 +4,7 @@ import { API_ENDPOINT_WEATHER, API_KEY } from '../../../core/api';
 import celsiusIcon from './cel.svg';
 import locationIcon from './location.svg';
 import './styles.css';
+import { WidgetCard } from './widget-card';
 
 export const WeatherWidget = () => {
   const { weatherInfo, location, setWeatherInfo } = useWeatherContext();
@@ -30,8 +31,9 @@ export const WeatherWidget = () => {
         src={`http://weathery-assets.surge.sh/${icon}.svg`}
         alt={weatherInfo?.current.weather[0]?.description}
       />
+      <h5>{weatherInfo?.current.weather[0]?.description}</h5>
       <h3 className="weather-app__widget_location">
-        {location?.name}
+        {location?.name}, {location?.country}
         <img
           className="weather-app__widget_location_img"
           src={locationIcon}
@@ -46,6 +48,7 @@ export const WeatherWidget = () => {
           alt="celsius"
         />
       </h2>
+      <WidgetCard />
     </div>
   ) : null;
 };
