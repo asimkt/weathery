@@ -1,0 +1,1 @@
+This code has been copied from my another project https://github.com/asimkt/typeahead/blob/master/src/Molecules/TypeAhead/utils.js
