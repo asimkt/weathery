@@ -28,7 +28,7 @@ export const WeatherWidget = () => {
     <div className="weather-app__widget">
       <img
         className="weather-app__widget_img"
-        src={`http://weathery-assets.surge.sh/${icon}.svg`}
+        src={`https://weathery-assets.surge.sh/${icon}.svg`}
         alt={weatherInfo?.current.weather[0]?.description}
       />
       <h5>{weatherInfo?.current.weather[0]?.description}</h5>
