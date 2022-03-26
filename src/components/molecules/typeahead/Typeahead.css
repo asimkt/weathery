@@ -3,6 +3,8 @@
     flex-direction: column;
     width: 330px;
     font-size: 14px;
+    color: var(--text-01);
+    position: relative;
   }
   
   .TypeAhead label {
@@ -14,6 +16,10 @@
     list-style: none;
     box-shadow: -2px 3px 8px 2px #3333333b;
     margin: 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
   }
   
   .TypeAhead__input,
@@ -23,7 +29,7 @@
     background-color: var(--bg-01);
     outline: none;
     margin-bottom: 8px;
-    color: var(--black-01);
+    color: var(--text-01);
     font-size: 14px;
     padding: 0;
   }
@@ -39,7 +45,7 @@
   
   .TypeAhead__option {
     padding: 6px 8px;
-    color: var(--black-01);
+    color: var(--text-01);
     font-size: 14px;
     cursor: pointer;
   }

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--text-01);
 }
 .weather-app__widget .weather-app__widget_img {
     width: 123px;
@@ -44,7 +45,7 @@
     font-size: 12px;
     line-height: 18px;
     margin-bottom: var(--spacing-02);
-    color: var(--black-03);
+    color: var(--text-03);
 }
 
 .weather-app__widget_card {
@@ -65,7 +66,7 @@
 }
 
 .weather-app__widget_card_info h4{
-    color: var(--black-03);
+    color: var(--text-03);
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
@@ -73,7 +74,7 @@
     text-transform: uppercase;
 }
 .weather-app__widget_card_info p{
-    color: var(--black-02);
+    color: var(--text-02);
     font-weight: 500;
     font-size: 15px;
     line-height: 22px;

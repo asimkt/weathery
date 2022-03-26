@@ -1,7 +1,5 @@
-import './App.css';
 import { useState } from 'react';
-import { CitySearch } from '../components/organisms/CitySearch';
-import { WeatherWidget } from '../components/organisms/WeatherWidget';
+import { WeatherApp } from '../components/organisms/WeatherApp';
 import { WeatherContext } from '../context';
 import { Location, Weather } from '../core/types';
 
@@ -16,11 +14,8 @@ export const App = () => {
   };
 
   return (
-    <div className="weather-app__container">
-      <WeatherContext.Provider value={contextValues}>
-        <CitySearch />
-        <WeatherWidget />
-      </WeatherContext.Provider>
-    </div>
+    <WeatherContext.Provider value={contextValues}>
+      <WeatherApp />
+    </WeatherContext.Provider>
   );
 };

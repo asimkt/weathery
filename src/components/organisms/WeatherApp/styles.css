@@ -1,0 +1,25 @@
+.weather-app--day {
+    --text-01: #242d32;
+    --text-02: #6d8896;
+    --text-03: #a3cbe1;
+    --bg-01: #f8fcff;
+    --bg-02: #e9f6fe;
+}
+
+.weather-app--night {
+    --text-01: #f0f9fe;
+    --text-02: #d3eefc;
+    --text-03: #bce5fb;
+    --bg-01: #121719;
+    --bg-02: #36444b;
+}
+
+.weather-app {
+    width: 375px;
+    height: 650px;
+    border: 1px solid #eee;
+    background-color: var(--bg-02);
+    border-radius: 3px;
+    padding: 24px;
+    transition: all .3s;
+}
