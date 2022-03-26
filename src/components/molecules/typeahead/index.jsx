@@ -2,7 +2,7 @@
 import debounce from 'lodash/debounce';
 import uniqBy from 'lodash/uniqBy';
 import React, { useState, useCallback } from 'react';
-import './TypeAhead.css';
+import './styles.css';
 import { getCachedApiResponse } from './utils';
 
 // Component will do some kind of caching in Browser.
