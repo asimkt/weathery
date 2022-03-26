@@ -1,0 +1,7 @@
+.weather-app__container {
+    background: #fff;
+    width: 375px;
+    height: 812px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
